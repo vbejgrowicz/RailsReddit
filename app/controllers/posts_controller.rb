@@ -38,7 +38,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy
-    redirect_to root_url
+    redirect_to topic_url(params[:topic_id])
   end
 
   private
