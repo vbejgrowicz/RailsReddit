@@ -1,0 +1,13 @@
+<div id="header"><% if @topics %>
+  <ul>
+    <% @topics.each do |topic| %>
+      <li>
+        <a href="<%= topic_url(topic) %>">
+          <%= topic.name %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+  <% end %>
+  <h1>rails reddit</h1>
+</div>
