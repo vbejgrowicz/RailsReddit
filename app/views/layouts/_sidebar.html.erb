@@ -1,0 +1,11 @@
+<% if @topic %>
+<% action_url = new_topic_post_url(@topic) %>
+<% else %>
+<% action_url = new_post_url %>
+<% end %>
+
+<div id="sidebar">
+  <div>
+    <a href="<%= action_url %>">Submit a new Post</a>
+  </div>
+</div>
