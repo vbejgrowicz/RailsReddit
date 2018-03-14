@@ -9,4 +9,19 @@ class PostsController < ApplicationController
     return redirect_to posts_url unless @post
     render 'show'
   end
+
+  def new
+    render 'new'
+  end
+
+  def create
+    @post = Post.new(post_params)
+    return render 'new' unless @post.save
+    redirect_to post_url(@post)
+  end
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
+  end
 end

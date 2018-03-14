@@ -1,0 +1,12 @@
+<h1>Add a Post</h1>
+
+<form action="<%= posts_url %>" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <label for="title">Title</label>
+  <input id="title" name="post[title]" type="text">
+  <br>
+  <label for="text">Text</label>
+  <textarea name="post[text]"></textarea>
+  <br>
+  <input type="submit" value="Add Post">
+</form>
