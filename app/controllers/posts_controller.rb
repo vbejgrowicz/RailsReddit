@@ -19,6 +19,18 @@ class PostsController < ApplicationController
     return render 'new' unless @post.save
     redirect_to post_url(@post)
   end
+
+  def edit
+    @post = Post.find_by(id: params[:id])
+    return render 'edit' unless @post.nil?
+    redirect_to posts_url
+  end
+
+  def update
+    @post = Post.find_by(id: params[:id])
+    return render 'edit' unless @post.update(post_params)
+    redirect_to post_url(@post)
+  end
   private
 
   def post_params
