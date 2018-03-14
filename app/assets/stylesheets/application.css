@@ -19,4 +19,7 @@ body, ul, li, a, h1, h2, p {
   border: 0;
   padding: 0;
 }
+
 require 'header.scss'
+require 'sidebar.scss'
+require 'page.scss'
