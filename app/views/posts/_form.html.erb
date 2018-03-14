@@ -1,0 +1,25 @@
+<% if action == :edit %>
+<% action_url = topic_post_url(post.topic_id, post) %>
+<% else %>
+<% action_url = posts_url %>
+<% end %>
+
+<form action="<%= action_url %>" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <% if action == :edit %>
+    <input type="hidden" name="_method" value="patch">
+  <% end %>
+  <label for="title">Title</label>
+  <input id="title" name="post[title]" type="text" value="<%= post.title %>">
+  <br>
+  <label for="text">Text</label>
+  <textarea name="post[text]"><%= post.text %></textarea>
+  <br>
+  <select name="post[topic_id]">
+    <option disabled <%= post.topic_id.nil? && 'selected'%>>Select a Topic</option>
+    <% topics.each do |topic| %>
+      <option value="<%= topic.id %>" <%= topic.id == post.topic_id ? 'selected' : '' %>><%= topic.name %></option>
+    <% end %>
+  </select>
+  <input type="submit" value="Update Post">
+</form>

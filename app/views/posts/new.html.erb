@@ -1,18 +1,3 @@
 <h1>Add a Post</h1>
 
-<form action="<%= posts_url %>" method="post">
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <label for="title">Title</label>
-  <input id="title" name="post[title]" type="text">
-  <br>
-  <label for="text">Text</label>
-  <textarea name="post[text]"></textarea>
-  <br>
-  <select name="post[topic_id]">
-    <option disabled selected>Select a Topic</option>
-    <% @topics.each do |topic| %>
-      <option value="<%= topic.id %>"><%= topic.name %></option>
-    <% end %>
-  </select>
-  <input type="submit" value="Add Post">
-</form>
+<%= render 'form', post: @post, topics: @topics, action: :new %>

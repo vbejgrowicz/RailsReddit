@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
     @topics = Topic.all
     render 'new'
   end
