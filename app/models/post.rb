@@ -1,3 +1,5 @@
 class Post < ApplicationRecord
-  validates :title, presence: true
+  validates :title, :topic_id, presence: true
+
+  belongs_to :topic
 end

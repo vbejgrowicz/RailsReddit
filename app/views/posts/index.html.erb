@@ -5,7 +5,7 @@
 <ul>
   <% @posts.each do |post| %>
     <li>
-      <a href="<%= post_url(post) %>">
+      <a href="<%= topic_post_url(post.topic_id, post) %>">
         <%= post.title %>
       </a>
     </li>
