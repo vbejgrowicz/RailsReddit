@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :load_topics, only: [:index, :show, :new, :edit]
+
   def index
     @posts = Post.all
     render 'index'
@@ -11,8 +13,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
-    @topics = Topic.all
+    @post = Post.new(topic_id: params[:topic_id])
     render 'new'
   end
 
@@ -24,7 +25,6 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find_by(id: params[:id])
-    @topics = Topic.all
     return render 'edit' unless @post.nil?
     redirect_to root_url
   end
@@ -45,5 +45,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :text, :topic_id)
+  end
+
+  def load_topics
+    @topics = Topic.all
   end
 end
