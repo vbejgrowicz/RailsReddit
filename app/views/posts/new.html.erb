@@ -8,5 +8,11 @@
   <label for="text">Text</label>
   <textarea name="post[text]"></textarea>
   <br>
+  <select name="post[topic_id]">
+    <option disabled selected>Select a Topic</option>
+    <% @topics.each do |topic| %>
+      <option value="<%= topic.id %>"><%= topic.name %></option>
+    <% end %>
+  </select>
   <input type="submit" value="Add Post">
 </form>

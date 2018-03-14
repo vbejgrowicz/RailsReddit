@@ -9,5 +9,11 @@
   <label for="text">Text</label>
   <textarea name="post[text]"><%= @post.text %></textarea>
   <br>
+  <select name="post[topic_id]">
+    <option disabled>Select a Topic</option>
+    <% @topics.each do |topic| %>
+      <option value="<%= topic.id %>" <%= topic.id == @post.topic_id ? 'selected' : '' %>><%= topic.name %></option>
+    <% end %>
+  </select>
   <input type="submit" value="Update Post">
 </form>
