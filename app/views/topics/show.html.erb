@@ -1,0 +1,11 @@
+<h2><%= @topic.name %></h2>
+
+<ul>
+  <% @topic.posts.each do |post| %>
+    <li>
+      <a href="<%= topic_post_url(post.topic_id, post) %>">
+        <%= post.title %>
+      </a>
+    </li>
+  <% end %>
+</ul>

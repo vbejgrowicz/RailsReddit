@@ -1,6 +1,14 @@
 class TopicsController < ApplicationController
-  def index
+  before_action :load_topics, only: [:show]
+
+  def show
+    @topic = Topic.find_by(id: params[:id])
+    render 'show'
+  end
+
+  private
+
+  def load_topics
     @topics = Topic.all
-    render json: @topics
   end
 end
