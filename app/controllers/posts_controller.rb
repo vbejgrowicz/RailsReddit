@@ -31,6 +31,13 @@ class PostsController < ApplicationController
     return render 'edit' unless @post.update(post_params)
     redirect_to post_url(@post)
   end
+
+  def destroy
+    @post = Post.find_by(id: params[:id])
+    @post.destroy
+    redirect_to posts_url
+  end
+
   private
 
   def post_params
