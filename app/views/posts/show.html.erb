@@ -1,5 +1,6 @@
 <h2><%= @post.title %></h2>
 <p><%= @post.text %></p>
+<a href="<%= edit_post_url(@post) %>">Edit Post</a>
 <form action="<%= post_url(@post) %>" method="post">
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <input type="hidden" name="_method" value="delete">
