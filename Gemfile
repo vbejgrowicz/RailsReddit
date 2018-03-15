@@ -43,6 +43,7 @@ group :development, :test do
   gem 'binding_of_caller'
   # Add support for rails console to open in pry
   gem 'pry-rails'
+  gem 'faker'
 end
 
 group :development do
