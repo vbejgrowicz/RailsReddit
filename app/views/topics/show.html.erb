@@ -1,5 +1,6 @@
 <ul>
-  <% @topic.posts.each do |post| %>
+  <% posts = @topic.posts.left_joins(:vote).group('posts.id').order('SUM(votes.value) DESC NULLS LAST', 'posts.updated_at DESC') %>
+  <% posts.each do |post| %>
     <%= render post %>
   <% end %>
 </ul>

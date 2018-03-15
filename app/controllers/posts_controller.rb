@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :load_topics, only: [:index, :show, :new, :edit]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.left_joins(:vote).group('posts.id').order('SUM(votes.value) DESC NULLS LAST', 'posts.updated_at DESC')
     render 'index'
   end
 
