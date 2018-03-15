@@ -2,14 +2,16 @@
 <% time = post.created_at.localtime.strftime("%I:%M %p") %>
 
 <li id="post">
-  <p><%= post.total_votes %></p>
-  <a class="title" href="<%= topic_post_url(post.topic_id, post) %>">
-    <%= post.title %>
-  </a>
-  <p class="data">
-    Submitted on <%= date %> at <%= time %>
-    <% if @topic.nil? %>
-      to <a href="<%= topic_url(post.topic) %>"><%=post.topic.name %></a>
-    <% end %>
-  </p>
+  <%= render 'posts/vote', post: post %>
+  <div id="content">
+    <a class="title" href="<%= topic_post_url(post.topic_id, post) %>">
+      <%= post.title %>
+    </a>
+    <p class="data">
+      Submitted on <%= date %> at <%= time %>
+      <% if @topic.nil? %>
+        to <a href="<%= topic_url(post.topic) %>"><%=post.topic.name %></a>
+      <% end %>
+    </p>
+  </div>
 </li>
