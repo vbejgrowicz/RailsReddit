@@ -13,13 +13,7 @@
  *= require_tree .
  *= require_self
  */
-body, ul, li, a, h1, h2, p {
-  font-family: 'Mina', sans-serif;
-  margin: 0;
-  border: 0;
-  padding: 0;
-}
-
+require 'app.scss'
 require 'header.scss'
 require 'sidebar.scss'
 require 'page.scss'
