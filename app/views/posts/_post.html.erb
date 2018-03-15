@@ -5,7 +5,7 @@
   <a class="title" href="<%= topic_post_url(post.topic_id, post) %>">
     <%= post.title %>
   </a>
-  <p>
+  <p class="data">
     Submitted on <%= date %> at <%= time %>
     <% if @topic.nil? %>
       to <a href="<%= topic_url(post.topic) %>"><%=post.topic.name %></a>
