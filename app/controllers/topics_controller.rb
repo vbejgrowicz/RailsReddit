@@ -3,6 +3,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find_by(id: params[:id])
+    return redirect_to root_url unless @topic
     render 'show'
   end
 
