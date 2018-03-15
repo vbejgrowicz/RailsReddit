@@ -2,6 +2,7 @@
 <% time = post.created_at.localtime.strftime("%I:%M %p") %>
 
 <li id="post">
+  <p><%= post.total_votes %></p>
   <a class="title" href="<%= topic_post_url(post.topic_id, post) %>">
     <%= post.title %>
   </a>
