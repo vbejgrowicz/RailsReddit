@@ -1,0 +1,14 @@
+<% date = post.created_at.localtime.strftime("%a %b %d %Y") %>
+<% time = post.created_at.localtime.strftime("%I:%M %p") %>
+
+<li id="post">
+  <a class="title" href="<%= topic_post_url(post.topic_id, post) %>">
+    <%= post.title %>
+  </a>
+  <p>
+    Submitted on <%= date %> at <%= time %>
+    <% if @topic.nil? %>
+      to <a href="<%= topic_url(post.topic) %>"><%=post.topic.name %></a>
+    <% end %>
+  </p>
+</li>
