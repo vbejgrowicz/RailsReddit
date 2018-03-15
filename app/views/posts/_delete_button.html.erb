@@ -1,0 +1,5 @@
+<form action="<%= topic_post_url(post.topic_id, post) %>" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Post">
+</form>
